@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Routes for navigation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-   "/" : - Registration Route
+-   "/login" : - Login Route
+-   "/user" : - User route
 
 ## Available Scripts
 

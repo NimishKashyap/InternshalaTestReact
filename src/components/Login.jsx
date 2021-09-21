@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
-function Login({ history }) {
+function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -10,10 +12,10 @@ function Login({ history }) {
         usersArray.forEach((user) => {
             if (user.email === email && user.password === password) {
                 alert("Login Success");
+                props.setLoggedIn(true);
                 history.push("/user");
             }
         });
-        
     };
     return (
         <form action="" autoComplete={false}>

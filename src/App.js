@@ -12,8 +12,10 @@ import {
     Route,
     Switch,
 } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(false);
     return (
         <Router>
             <div className="App">
@@ -23,9 +25,16 @@ function App() {
                     </div>
                     <div className="right">
                         <Switch>
-                            <Route exact path="/" component={Register} />
-                            <Route exact path="/login" component={Login} />
-                            <Route exact path="/user" component={Users} />
+                            <Route exact path="/">
+                                <Register />
+                            </Route>
+                            <Route exact path="/login">
+                                <Login setLoggedIn={setLoggedIn} />
+                            </Route>
+
+                            <Route exact path="/user">
+                                {loggedIn ? <Users /> : alert("Login First")}
+                            </Route>
                         </Switch>
                     </div>
                 </div>
